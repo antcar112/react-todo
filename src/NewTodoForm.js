@@ -18,10 +18,16 @@ class NewTodoForm extends Component {
 	}
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.createTodo({ ...this.state, id: uuid(), completed: false });
-		this.setState({
-			task : ''
-		});
+		if (this.state.task !== '') {
+			this.props.createTodo({
+				...this.state,
+				id: uuid(),
+				completed: false
+			});
+			this.setState({
+				task : ''
+			});
+		}
 	}
 	render() {
 		return (
@@ -35,7 +41,7 @@ class NewTodoForm extends Component {
 					value={this.state.task}
 					onChange={this.handleChange}
 				/>
-				<button type="submit">Add Todo!</button>
+				<button type="submit">Add Todo</button>
 			</form>
 		);
 	}
