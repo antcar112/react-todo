@@ -21,8 +21,8 @@ class NewTodoForm extends Component {
 		if (this.state.task !== '') {
 			this.props.createTodo({
 				...this.state,
-				id: uuid(),
-				completed: false
+				id        : uuid(),
+				completed : false
 			});
 			this.setState({
 				task : ''
